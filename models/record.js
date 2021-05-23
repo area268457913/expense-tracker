@@ -18,8 +18,11 @@ const recordSchema = new Schema({
   },
 
   amount: {
-    type: String,
+    type: Number,
     required: true
+  },
+  icon: {
+    type: String,
   }
 })
 

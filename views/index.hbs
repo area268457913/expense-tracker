@@ -1,1 +1,52 @@
-<h2>Hello world! 這是 index</h2>
+<div class="row mt-5">
+  <div class="col-md-8">
+    <form action="/filter" method="GET">
+      <select class="custom-select" id="filterSelector">
+        <option selected>篩選支出</option>
+        {{#each cates}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </form>
+  </div>
+</div>
+<div class="row mt-5 ">
+  <div class="col-md-4 ">
+    <div class="h3">總金額</div>
+  </div>
+  <div class="col-md-4 ">
+    <div class="h2 text-danger" id="amountShow">{{totalAmount}}</div>
+  </div>
+</div>
+<div>
+  <ul class='list-group'>
+    {{#each recs}}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-6">
+          <div class="h3">
+            <i class="{{this.icon}} fa-1x"></i>
+            {{this.name}}
+          </div>
+          <div>{{this.date}}</div>
+        </div>
+        <div class="col-1 h3 text-danger" style="display: flex; align-items: center; justify-content: center;">
+          {{this.amount}}</div>
+        <div class="col-2  text-center align-items-center"
+          style="display: flex; align-items: center; justify-content: center;">
+          <div>
+            <a class="btn btn-success" href="./recs/{{ this._id }}/edit">修改</a>
+            <form action="./recs/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+              <button class="btn btn-danger" type="submit">刪除</button>
+            </form>
+          </div>
+        </div>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+<div>
+  <form action="./recs/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+    <button class="btn btn-info" type="submit">新增支付</button>
+  </form>
+</div>
