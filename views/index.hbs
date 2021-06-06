@@ -1,5 +1,5 @@
-<div class="row mt-5">
-  <div class="col-md-8">
+<div class="row mt-5 ml-5">
+  <div class="col-md-3">
     <form action="/filter" method="GET">
       <select class="custom-select" id="filterSelector">
         <option selected>篩選支出</option>
@@ -10,20 +10,20 @@
     </form>
   </div>
 </div>
-<div class="row mt-5 ">
+<div class="row mt-5 ml-5">
   <div class="col-md-4 ">
-    <div class="h3">總金額</div>
+    <div class="h3 ">總金額</div>
   </div>
   <div class="col-md-4 ">
     <div class="h2 text-danger" id="amountShow">{{totalAmount}}</div>
   </div>
 </div>
-<div>
+<div class="ml-5 ">
   <ul class='list-group'>
     {{#each recs}}
     <li class="list-group-item">
       <div class="row">
-        <div class="col-6">
+        <div class="col-9">
           <div class="h3">
             <i class="{{this.icon}} fa-1x"></i>
             {{this.name}}
@@ -45,8 +45,6 @@
     {{/each}}
   </ul>
 </div>
-<div>
-  <form action="./recs/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-    <button class="btn btn-info" type="submit">新增支付</button>
-  </form>
+<div class="my-1 text-center">
+  <a class="add-btn btn btn-info mr-5" href="./recs/new" role="button">新增支出</a>
 </div>
