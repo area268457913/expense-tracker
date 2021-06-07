@@ -7,7 +7,7 @@
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
     <div class="card card-body">
-      <form action="/recs/{{ rec._id }}/edit" method="POST">
+      <form action="/recs/{{ rec._id }}?_method=PUT" method="POST">
         <div class="form-group h4">
           <label for="name" class="col-md-2">名稱<span class="text-danger">*</span></label>
           <input type="text" id="name" name="name" value="{{ rec.name }}" required>
@@ -21,7 +21,7 @@
           <select id="category" placeholder="請選擇類別" name="category" required>
             <option selected>請選擇類別</option>
             {{#each categoryList}}
-            <option value="{{this}}">{{this}}</option>
+            <option {{#if (eq this ../rec.category)}} selected {{/if}}>{{this}}</option>
             {{/each}}
           </select>
         </div>

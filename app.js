@@ -7,13 +7,22 @@ const exphbs = require('express-handlebars')
 const Cate = require('./models/category')
 const Rec = require('./models/record')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 
 app.use(express.static('public'))
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
+app.engine('hbs', exphbs({
+  defaultLayout: 'main', extname: 'hbs',
+  helpers: {
+    eq: function (a1, a2) {
+      return a1 === a2
+    }
+  }
+}))
 app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
+
 
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -23,6 +32,8 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongodb connected!')
 })
+
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
   let totalAmount = 0
@@ -81,7 +92,7 @@ app.get('/recs/:id/edit', (req, res) => {
     .then((rec) => res.render('edit', { rec, categoryList }))
     .catch(error => console.log(error))
 })
-app.post('/recs/:id/edit', (req, res) => {
+app.put('/recs/:id/', (req, res) => {
   const id = req.params.id
   const { name, date, category, amount } = req.body
   return Rec.findById(id)
@@ -102,6 +113,14 @@ app.post('/recs/:id/edit', (req, res) => {
     })
     .then(() => res.redirect('/'))
     .catch((error) => console.log(error))
+})
+//  刪除
+app.delete('/recs/:id', (req, res) => {
+  const id = req.params.id
+  return Rec.findById(id)
+    .then(rec => rec.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`)

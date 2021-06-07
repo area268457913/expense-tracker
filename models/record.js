@@ -23,6 +23,7 @@ const recordSchema = new Schema({
   },
   icon: {
     type: String,
+    default: ''
   }
 })
 

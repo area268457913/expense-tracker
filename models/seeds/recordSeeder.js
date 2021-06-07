@@ -8,7 +8,7 @@ const data = [
     category: '飲食',
     date: '2021/04/23',
     amount: 100,
-    icon: 'fas fa-utensils'
+    icon: 'fas fa-utensils',
   },
 
   {
@@ -16,7 +16,7 @@ const data = [
     category: '休閒娛樂',
     date: '2021/04/23',
     amount: 250,
-    icon: 'fas fa-grin-beam'
+    icon: 'fas fa-grin-beam',
   },
 
   {
@@ -24,7 +24,7 @@ const data = [
     category: '飲食',
     date: '2021/04/23',
     amount: 500,
-    icon: 'fas fa-utensils'
+    icon: 'fas fa-utensils',
   },
 
   {
@@ -32,7 +32,7 @@ const data = [
     category: '交通',
     date: '2021/04/23',
     amount: 30,
-    icon: 'fas fa-shuttle-van'
+    icon: 'fas fa-shuttle-van',
   },
 
   {
@@ -40,7 +40,7 @@ const data = [
     category: '其他',
     date: '2021/04/23',
     amount: 1000,
-    icon: 'fas fa-pen'
+    icon: 'fas fa-pen',
   },
 
   {
@@ -48,7 +48,7 @@ const data = [
     category: '飲食',
     date: '2021/04/23',
     amount: 800,
-    icon: 'fas fa-utensils'
+    icon: 'fas fa-utensils',
   },
 ]
 
