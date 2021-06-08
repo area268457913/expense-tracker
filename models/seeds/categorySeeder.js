@@ -1,6 +1,5 @@
-const mongoose = require('mongoose')
 const Cate = require('../category')
-const db = mongoose.connection
+const db = require('../../config/mongoose')
 const data = [
   {
     name: '家居物業',
@@ -24,11 +23,6 @@ const data = [
   },
 ]
 
-mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
 
 db.once('open', () => {
   Cate.create(data)

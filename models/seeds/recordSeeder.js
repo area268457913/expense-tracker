@@ -1,6 +1,5 @@
-const mongoose = require('mongoose')
 const Rec = require('../record')
-const db = mongoose.connection
+const db = require('../../config/mongoose')
 const data = [
 
   {
@@ -52,11 +51,7 @@ const data = [
   },
 ]
 
-mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 
-db.on('error', () => {
-  console.log('mongodb error!')
-})
 
 db.once('open', () => {
   Rec.create(data)
