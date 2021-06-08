@@ -8,8 +8,9 @@ const Cate = require('./models/category')
 const Rec = require('./models/record')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const routes = require('./routes')
 
-
+app.use(routes)
 app.use(express.static('public'))
 app.engine('hbs', exphbs({
   defaultLayout: 'main', extname: 'hbs',

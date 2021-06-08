@@ -1,10 +1,10 @@
 <div class="row mt-5 ml-5">
   <div class="col-md-3">
     <form action="/filter" method="GET">
-      <select class="custom-select" id="filterSelector">
+      <select class="custom-select" name="filter" id="filterSelector" onchange="this.form.submit()">
         <option selected>篩選支出</option>
         {{#each cates}}
-        <option value="{{this}}">{{this}}</option>
+        <option value="{{this}}" {{#if (eq this ../filter)}}selected {{/if}}>{{this}}</option>
         {{/each}}
       </select>
     </form>
