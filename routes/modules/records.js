@@ -6,13 +6,10 @@ const Cate = require('../../models/category')
 
 //  新增
 router.get('/new', (req, res) => {
-  const cates = []
   Cate.find()
     .lean()
-    .then((item) => {
-      item.forEach((items) => cates.push(items.name))
-    })
-  return res.render('new', { cates })
+    .then((cates) => res.render('new', { cates }))
+    .catch((error) => console.error(error))
 })
 
 router.post('/new', (req, res) => {
@@ -41,7 +38,6 @@ router.get('/:id/edit', (req, res) => {
   return Rec.findById(id)
     .lean()
     .then((rec) => res.render('edit', { rec, categoryList }))
-    .catch(error => console.log(error))
 })
 router.put('/:id/', (req, res) => {
   const id = req.params.id

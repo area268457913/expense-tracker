@@ -21,13 +21,13 @@
           <select id="category" placeholder="請選擇類別" name="category" required>
             <option selected>請選擇類別</option>
             {{#each cates}}
-            <option>{{this}}</option>
+            <option>{{this.name}}</option>
             {{/each}}
           </select>
         </div>
         <div class="form-group h4">
           <label for="amount" class="col-md-2">金錢<span class="text-danger">*</span></label>
-          <input type="number" name="amount" id="amount" required>
+          <input type="number" name="amount" id="amount" min="0" step="1" required>
         </div>
         <div class="row mt-3">
           <div class="col-md-2"></div>
