@@ -1,4 +1,4 @@
-<div class="row mt-5 ml-5">
+<div class="row mt-5 ml-5 mr-5">
   <div class="col-md-3">
     <form action="/filter" method="GET">
       <select class="custom-select" name="filter" id="filterSelector" onchange="this.form.submit()">
@@ -10,7 +10,7 @@
     </form>
   </div>
 </div>
-<div class="row mt-5 ml-5">
+<div class="row mt-5 ml-5 mr-5">
   <div class="col-md-4 ">
     <div class="h3 ">總金額</div>
   </div>
@@ -18,7 +18,7 @@
     <div class="h2 text-danger" id="amountShow">{{totalAmount}}</div>
   </div>
 </div>
-<div class="ml-5 ">
+<div class="ml-5 mr-5">
   <ul class='list-group'>
     {{#each recs}}
     <li class="list-group-item">
